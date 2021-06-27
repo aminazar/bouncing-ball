@@ -2,7 +2,7 @@
 
 ## Attributions
 
-### Based on tS-project-template
+### Based on ts-project-template
 [Template project](https://github.com/TomRaaff/TS-project-template) for TypeScript applications
 
 > You can read more about this template in [this blogpost](https://blog.jcore.com/2021/01/how-to-set-up-a-vanilla-ts-application/)
