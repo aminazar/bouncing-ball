@@ -1,4 +1,5 @@
 module.exports = {
+	preset: 'ts-jest',
 	roots: [
 		'<rootDir>/src',
 	],
@@ -20,5 +21,7 @@ module.exports = {
 	},
 	transformIgnorePatterns: [
 		'<rootDir>/node_modules/(?!tr-utilities-lib)/'
-	]
+	],
+	testEnvironment: 'jsdom',
+	setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };

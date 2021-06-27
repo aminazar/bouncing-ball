@@ -1,5 +1,5 @@
-$superDarkBlue: #2c3e50
-$offWhite: #f9f9f9
+$padding-top: 3vh
+$title-height: 7vh
 
 *
   margin: 0
@@ -10,14 +10,28 @@ body
   font-family: "Roboto Slab", Avenir, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  color: $superDarkBlue
 
   main
     margin: auto
-    background-color: $offWhite
     width: 100vw
     height: 100vh
 
   section
-    padding-top: 30vh
     text-align: center
+    height: 100vh
+    width: 100vw
+
+  h1
+    padding-top: $padding-top
+    line-height: $title-height
+
+  div
+    background: antiquewhite
+    width: calc(100vw - (#{$padding-top} + #{$title-height}) * 2)
+    height: calc(100vh - (#{$padding-top} + #{$title-height}) * 2)
+    margin: 0 auto
+  .ball
+    position: absolute
+    border-radius: 50%
+    background-color: rgba(0, 0, 0, .4)
+    border: 0

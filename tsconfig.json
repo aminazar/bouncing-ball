@@ -15,10 +15,15 @@
     "noUnusedParameters": false
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./jest.config.ts"
   ],
   "exclude": [
     "./src/*.test.js",
     "./src/**/*.test.js"
+  ],
+  "lib": [
+    "es2016",
+    "dom"
   ]
 }
