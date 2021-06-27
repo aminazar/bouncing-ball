@@ -1,10 +1,10 @@
 const DEFAULT_RADIUS = 10;
 const DEFAULT_DAMP = 0.2;
 const GRAVITY = 200;
-const LEFT_WIND_VELOCITY = 100;
+export const LEFT_WIND_VELOCITY = 100;
 const FPS = 60;
 
-class Ball {
+export class Ball {
 	x: number;
 	y: number;
 	spin: number;
@@ -67,7 +67,7 @@ class Ball {
 	}
 }
 
-class Surface {
+export class Surface {
 	// A surface is a line in the Viewport with this equation: ax + by + c = 0
 	a: number;
 	b: number;
@@ -95,7 +95,7 @@ class Surface {
 	}
 }
 
-class Throw {
+export class Throw {
 	startX: number;
 	startY: number;
 	endX: number;
@@ -126,7 +126,7 @@ class Throw {
 	}
 }
 
-class World {
+export class World {
 	balls: Ball[];
 	surfaces: Surface[];
 	gravity: number;
@@ -156,7 +156,7 @@ class World {
 			})
 			let rect = box.getBoundingClientRect();
 			this.boundaries = rect;
-			let floor = new Surface(0, 1, -rect.bottom, this.surfaces.length);
+			let floor = new Surface(0, 1, -rect.bottom, 0);
 			this.surfaces.push(floor);
 		} else {
 			console.log('"box" id is missing!');
@@ -165,7 +165,7 @@ class World {
 
 	newBall(x: number, y: number, vx: number, vy: number) {
 		let ball = new Ball(x, y, vx, vy);
-		if( !this.surfaces.some(surface => Math.abs(surface.calc(x, y)) < 2 * DEFAULT_RADIUS)) {
+		if ( !this.surfaces.some(surface => Math.abs(surface.calc(x, y)) < 2 * DEFAULT_RADIUS)) {
 			this.balls.push(ball);
 			ball.paint(this.box);
 		}
@@ -195,9 +195,8 @@ class World {
 	}
 }
 
-export default function start() {
+export function start() {
 	let world = new World(GRAVITY);
 	world.init();
 	world.start();
 }
-start();
