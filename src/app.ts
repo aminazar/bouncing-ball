@@ -142,7 +142,7 @@ export class World {
 	}
 
 	init() {
-		let box = document.getElementById('box');
+		const box = document.getElementById('box');
 		if (box) {
 			this.box = box;
 			let ballThrow: Throw;
@@ -151,12 +151,12 @@ export class World {
 			});
 			box.addEventListener(('mouseup'), event => {
 				ballThrow.thowEnds(event.clientX, event.clientY);
-				let [vx, vy] = ballThrow.velocity();
+				const [vx, vy] = ballThrow.velocity();
 				this.newBall(event.clientX, event.clientY, vx, vy);
 			})
-			let rect = box.getBoundingClientRect();
+			const rect = box.getBoundingClientRect();
 			this.boundaries = rect;
-			let floor = new Surface(0, 1, -rect.bottom, 0);
+			const floor = new Surface(0, 1, -rect.bottom, 0);
 			this.surfaces.push(floor);
 		} else {
 			console.log('"box" id is missing!');
@@ -164,7 +164,7 @@ export class World {
 	}
 
 	newBall(x: number, y: number, vx: number, vy: number) {
-		let ball = new Ball(x, y, vx, vy);
+		const ball = new Ball(x, y, vx, vy);
 		if ( !this.surfaces.some(surface => Math.abs(surface.calc(x, y)) < 2 * DEFAULT_RADIUS)) {
 			this.balls.push(ball);
 			ball.paint(this.box);
@@ -196,7 +196,7 @@ export class World {
 }
 
 export function start() {
-	let world = new World(GRAVITY);
+	const world = new World(GRAVITY);
 	world.init();
 	world.start();
 }
